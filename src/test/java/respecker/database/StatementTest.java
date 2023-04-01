@@ -39,6 +39,14 @@ public class StatementTest {
         String sql = "SELECT * FROM customers";
 
         ResultSet resultSet = statement.executeQuery(sql);
+
+        while (resultSet.next()){
+            int id = resultSet.getInt("id");
+            String name = resultSet.getString("name");
+            String email = resultSet.getString("email");
+
+            System.out.println(id + " " + name + " " + email);
+        }
         resultSet.close();
         statement.close();
         connection.close();
